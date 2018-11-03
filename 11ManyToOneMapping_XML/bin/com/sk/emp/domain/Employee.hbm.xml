@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping package="com.sk.emp.domain">
+	<class name="Employee" table="EmployeeMaster">
+		<id column="EmpID" name="empno" type="java.lang.Integer">
+			<generator class="assigned" />
+		</id>
+		<many-to-one name="dept" class="Dept"
+			column="deptno" lazy="false"/>
+
+		<property name="ename" column="name" type="java.lang.String" />
+		<property name="sal" type="java.lang.Float" />
+		<property name="deptno" type="java.lang.Integer" insert="false" update="false"/>
+	</class>
+</hibernate-mapping>

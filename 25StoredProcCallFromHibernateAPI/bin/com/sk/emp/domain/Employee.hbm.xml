@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping package="com.sk.emp.domain">
+	<class name="Employee" table="EmployeeDetails">
+		<id column="EmpID" name="empno" type="java.lang.Integer">
+			<generator class="assigned" />
+		</id>
+		<many-to-one name="dept" class="Dept" column="deptno" />
+
+		<property name="ename" column="name" type="java.lang.String" />
+		<property name="sal" type="java.lang.Float" />
+		<property name="deptno" type="java.lang.Integer"
+			insert="false" update="false" />
+	</class>
+	<sql-query name="GET_ALL_EMPLOYEES">
+		SELECT * FROM Employee
+		<return class="com.sk.emp.domain.Employee" />
+	</sql-query>
+
+	<sql-query name="GET_ALL_EMPLOYEES_DEPT">
+		SELECT * FROM Employee e,Department d
+		<return alias="e" class="com.sk.emp.domain.Employee" />
+		<return alias="d" class="com.sk.emp.domain.Dept" />
+	</sql-query>
+
+	<sql-query name="GET_ALL_EMPLOYEES_CORRESPONDING_DEPT">
+		SELECT e.*,d.* FROM Employee e,Department d WHERE e.deptno=d.deptno
+		<return alias="e" class="com.sk.emp.domain.Employee" />
+		<return alias="d" class="com.sk.emp.domain.Dept" />
+	</sql-query>
+
+	<sql-query
+		name="GET_ALL_EMPLOYEES_CORRESPONDING_DEPT_CUSTOME_OBJECT">
+		SELECT e.name,d.dname FROM Employee e,Department d WHERE
+		e.deptno=d.deptno
+		<return class="com.sk.emp.vo.EmpMinDetails">
+			<return-property column="name" name="ename" />
+			<return-property column="dname" name="dname" />
+		</return>
+	</sql-query>
+
+</hibernate-mapping>

@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 2, 2018 11:54:36 AM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.sk.emp.domain.Employee" table="EMPLOYEE">
+        <id name="empno" type="java.lang.Integer">
+            <column name="EMPID" />
+            <generator class="assigned" />
+        </id>
+        <property name="ename" type="java.lang.String">
+            <column name="NAME" />
+        </property>
+        <property name="sal" type="java.lang.Float">
+            <column name="SAL" />
+        </property>
+        <property name="deptno" type="java.lang.Integer">
+            <column name="DEPTNO" />
+        </property>
+        <!-- <set name="courseList" table="EMP_COURSE" lazy="false">
+            <key>
+                <column name="eId" />
+            </key>
+            <many-to-many class="com.sk.emp.domain.Course" column="cId"/>
+        </set> -->
+    </class>
+</hibernate-mapping>

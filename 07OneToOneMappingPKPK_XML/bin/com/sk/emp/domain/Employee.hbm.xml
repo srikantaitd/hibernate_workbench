@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping package="com.sk.emp.domain">
+	<class name="Employee" table="Employee">
+		<id column="EmpID" name="empno" type="java.lang.Integer">
+			<generator class="assigned" />
+		</id>
+		<one-to-one name="personalDetail" class="PersonalDetails" lazy="false"/>
+		
+		<property name="ename" column="name" type="java.lang.String" />
+		<property name="sal" type="java.lang.Float" />
+		<property name="deptno" type="java.lang.Integer" />
+	</class>
+</hibernate-mapping>

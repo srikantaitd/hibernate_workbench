@@ -24,7 +24,7 @@ public class NamedNativeReadTestCase {
 		} catch (InterruptedException intrupptedEx) {
 
 		}
-		// getAllEmployees(GET_ALL_EMPLOYEES);
+		 getAllEmployees(GET_ALL_EMPLOYEES);
 		// getAllEmployees(GET_ALL_EMPLOYEES_2);
 		// getAllDept(GET_ALL_DEPT);
 

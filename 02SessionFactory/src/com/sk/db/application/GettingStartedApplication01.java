@@ -15,5 +15,6 @@ public class GettingStartedApplication01 {
 
 		Employee emp01 = (Employee) session.get(Employee.class, 7839);
 		System.out.println(emp01);
+	
 	}
 }
